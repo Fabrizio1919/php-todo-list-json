@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title></title>
+    <title>Todo List</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,9 +19,14 @@
 
 
     <div id="app">
-
-        
-
+        <div id="app">
+            <div class="container">
+                <h1>TodoList</h1>
+                <ul>
+                    <li v-for="todo in todos">{{todo.text}}</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
 
