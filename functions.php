@@ -7,7 +7,7 @@ function addTodo($todo_list, $params)
     $backup_todo_list = $todo_list;
 
     $todo = [
-        'text' => $params['todo'],
+        'text' => $params,
         'done' => false
     ];
 
@@ -26,11 +26,12 @@ function deleteTodo($todo_list, $index)
     $backup_todo_list = $todo_list;
 
     //cancellazione elemento - valutare splice
-    unset($todo_list[$index]);
+   array_splice($todo_list, $index, 1);
 
     saveFile('todo-list.json', json_encode($backup_todo_list), json_encode($todo_list)); //salviamo la stringa json
     return $todo_list;
 }
+
 
 //funzione per modificare un todo
 function editTodo($todo_list, $params)
@@ -38,10 +39,10 @@ function editTodo($todo_list, $params)
     //esempio dato di bk
     $backup_todo_list = $todo_list;
 
-    $index = $params['edit'];
+    $index = $params['index'];
     $todo_list[$index] = array(
         'text' => $params['text'],
-        'done' => false
+        'done' => !$todo_list[$index]['done']
     );
 
     //salvare la nuova todo list nel file dei todo (il nostro db)

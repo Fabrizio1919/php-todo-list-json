@@ -14,13 +14,13 @@ $todo_list = json_decode($database, true); // <---- ARRAY ASSOCIATIVO !!!
 //GESTIONE AGGIUNTA TODO
 if (isset($_POST['add'])) {
     //operazione add
-    $todo_list = addTodo($todo_list, $_POST);
+    $todo_list = addTodo($todo_list, $_POST['new_task']);
 }
 
 //GESTIONE CANCELLAZIONE TODO
 if (isset($_POST['delete'])) {
     //operazione add
-    $todo_list = deleteTodo($todo_list, $_POST['delete']);
+    $todo_list = deleteTodo($todo_list, $_POST['index']);
 }
 
 //GESTIONE MODIFICA DATI

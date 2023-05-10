@@ -23,8 +23,10 @@
             <div class="container">
                 <h1>TodoList</h1>
                 <ul>
-                    <li v-for="todo in todos">{{todo.text}}</li>
+                    <li v-for="(todo, index) in todos"><span :class="todo.done ? 'text-decoration-line-through' : ''" @click="changeDone(index)">{{todo.text}}</span> <i class="fa-solid fa-trash " @click="deleteTodo(index)"></i></li>
                 </ul>
+                <input type="text" v-model="new_task">
+                <button @click="addTask">Insert</button>
             </div>
         </div>
     </div>
